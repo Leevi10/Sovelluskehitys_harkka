@@ -10,7 +10,15 @@
         <TabControl Margin="0,25,0,0">
             <TabItem Header="Reenitiedot">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <DataGrid x:Name="treeni_tiedot_lista" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="id" Binding="{Binding Path='id'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Käyttäjä" Binding="{Binding Path='Käyttäjä'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Liike" Binding="{Binding Path='Liike'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Paino" Binding="{Binding Path='Paino'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Toistot" Binding="{Binding Path='Toistot'}" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Lisää/Poista">
@@ -24,14 +32,14 @@
                     <TextBox x:Name="paino_box" HorizontalAlignment="Left" Margin="124,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
                     <Label x:Name="paino_label" Content="Paino" HorizontalAlignment="Left" Margin="55,138,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="toisto_label" Content="Toistot" HorizontalAlignment="Left" Margin="49,102,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28"/>
+                    <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28" Cursor="Hand"/>
                     <ComboBox x:Name="valitsekäyttäjä_combo" HorizontalAlignment="Left" Margin="105,30,0,0" VerticalAlignment="Top" Width="159"/>
                     <Label x:Name="valitsekäyttäjä_label" Content="Valitse käyttäjä" HorizontalAlignment="Left" Margin="6,26,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Käyttäjä">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="käyttäjä_lisää_button" Content="Lisää käyttäjä" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Width="217" Height="30"/>
+                    <Button x:Name="käyttäjä_lisää_button" Content="Lisää käyttäjä" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Width="217" Height="30" Cursor="Hand"/>
                     <TextBox x:Name="uusikäyttäjä_box" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="217" Height="29"/>
                     <Label x:Name="uusikäyttäjä_label" Content="Uusi käyttäjä" HorizontalAlignment="Center" Margin="0,118,0,0" VerticalAlignment="Top" Width="90" FontWeight="Bold" FontFamily="Arial"/>
                 </Grid>
