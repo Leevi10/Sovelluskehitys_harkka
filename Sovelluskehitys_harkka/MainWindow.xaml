@@ -1,0 +1,42 @@
+﻿<Window x:Class="Sovelluskehitys_harkka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sovelluskehitys_harkka"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl Margin="0,25,0,0">
+            <TabItem Header="Reenitiedot">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Lisää/Poista">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="liikelisää_button" Content="Lisää liike" HorizontalAlignment="Left" Margin="635,85,0,0" VerticalAlignment="Top" Width="129" Height="25" Cursor="Hand"/>
+                    <TextBox x:Name="uusiliike_box" HorizontalAlignment="Left" Margin="635,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="22"/>
+                    <Label x:Name="Liike_Label" Content="Lisää uusi liike" Margin="635,10,0,0" VerticalAlignment="Top" Width="129" HorizontalAlignment="Left" Cursor="Arrow"/>
+                    <ComboBox x:Name="valitseliike_combo" HorizontalAlignment="Left" Margin="105,66,0,0" VerticalAlignment="Top" Width="159"/>
+                    <Label x:Name="valitseliike_label" Content="Valitse liike" HorizontalAlignment="Left" Margin="26,62,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="toisto_box" HorizontalAlignment="Left" Margin="124,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
+                    <TextBox x:Name="paino_box" HorizontalAlignment="Left" Margin="124,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
+                    <Label x:Name="paino_label" Content="Paino" HorizontalAlignment="Left" Margin="55,138,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="toisto_label" Content="Toistot" HorizontalAlignment="Left" Margin="49,102,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28"/>
+                    <ComboBox x:Name="valitsekäyttäjä_combo" HorizontalAlignment="Left" Margin="105,30,0,0" VerticalAlignment="Top" Width="159"/>
+                    <Label x:Name="valitsekäyttäjä_label" Content="Valitse käyttäjä" HorizontalAlignment="Left" Margin="6,26,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Käyttäjä">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="käyttäjä_lisää_button" Content="Lisää käyttäjä" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Width="217" Height="30"/>
+                    <TextBox x:Name="uusikäyttäjä_box" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="217" Height="29"/>
+                    <Label x:Name="uusikäyttäjä_label" Content="Uusi käyttäjä" HorizontalAlignment="Center" Margin="0,118,0,0" VerticalAlignment="Top" Width="90" FontWeight="Bold" FontFamily="Arial"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
