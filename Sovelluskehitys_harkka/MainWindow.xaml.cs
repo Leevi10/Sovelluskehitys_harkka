@@ -66,5 +66,16 @@ namespace Sovelluskehitys_harkka
 
             tkt.paivitaKTcombo(valitsekäyttäjä_combo);
         }
+
+        private void Lisäätreeni_button_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection kanta = new SqlConnection (polku);
+            kanta.Open();
+
+            string kayttaja = valitsekäyttäjä_combo.SelectedValue.ToString();
+            string liike = valitseliike_combo.SelectedValue.ToString();
+
+            string sql = "INSERT "
+        }
     }
 }

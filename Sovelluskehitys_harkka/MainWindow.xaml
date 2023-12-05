@@ -30,7 +30,7 @@
                     <TextBox x:Name="paino_box" HorizontalAlignment="Left" Margin="124,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
                     <Label x:Name="paino_label" Content="Paino" HorizontalAlignment="Left" Margin="55,138,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="toisto_label" Content="Toistot" HorizontalAlignment="Left" Margin="49,102,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28" Cursor="Hand"/>
+                    <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28" Cursor="Hand" Click="Lisäätreeni_button_Click"/>
                     <ComboBox x:Name="valitsekäyttäjä_combo" HorizontalAlignment="Left" Margin="105,30,0,0" VerticalAlignment="Top" Width="159"/>
                     <Label x:Name="valitsekäyttäjä_label" Content="Valitse käyttäjä" HorizontalAlignment="Left" Margin="6,26,0,0" VerticalAlignment="Top"/>
                 </Grid>
