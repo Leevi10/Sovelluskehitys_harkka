@@ -22,11 +22,8 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Lisää/Poista">
+            <TabItem Header="Lisää Treeni">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="liikelisää_button" Content="Lisää liike" HorizontalAlignment="Left" Margin="635,85,0,0" VerticalAlignment="Top" Width="129" Height="25" Cursor="Hand" Click="liikelisää_button_Click"/>
-                    <TextBox x:Name="uusiliike_box" HorizontalAlignment="Left" Margin="635,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="22"/>
-                    <Label x:Name="Liike_Label" Content="Lisää uusi liike" Margin="635,10,0,0" VerticalAlignment="Top" Width="129" HorizontalAlignment="Left" Cursor="Arrow"/>
                     <ComboBox x:Name="valitseliike_combo" HorizontalAlignment="Left" Margin="105,66,0,0" VerticalAlignment="Top" Width="159"/>
                     <Label x:Name="valitseliike_label" Content="Valitse liike" HorizontalAlignment="Left" Margin="26,62,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="toisto_box" HorizontalAlignment="Left" Margin="124,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
@@ -40,11 +37,20 @@
             </TabItem>
             <TabItem Header="Käyttäjä">
                 <Grid Background="#FFE5E5E5">
-                    <Button x:Name="käyttäjä_lisää_button" Content="Lisää käyttäjä" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Width="217" Height="30" Cursor="Hand"/>
+                    <Button x:Name="käyttäjä_lisää_button" Content="Lisää käyttäjä" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Width="217" Height="30" Cursor="Hand" Click="käyttäjä_lisää_button_Click"/>
                     <TextBox x:Name="uusikäyttäjä_box" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="217" Height="29"/>
                     <Label x:Name="uusikäyttäjä_label" Content="Uusi käyttäjä" HorizontalAlignment="Center" Margin="0,118,0,0" VerticalAlignment="Top" Width="90" FontWeight="Bold" FontFamily="Arial"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Lisää/poista liike">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="liikelisää_button" Content="Lisää liike" HorizontalAlignment="Left" Margin="37,96,0,0" VerticalAlignment="Top" Width="129" Height="25" Cursor="Hand" Click="liikelisää_button_Click"/>
+                    <TextBox x:Name="uusiliike_box" HorizontalAlignment="Left" Margin="37,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="22"/>
+                    <Label x:Name="Liike_Label" Content="Lisää uusi liike" Margin="37,21,0,0" VerticalAlignment="Top" Width="129" HorizontalAlignment="Left" Cursor="Arrow"/>
+
+                </Grid>
+            </TabItem>
+
 
         </TabControl>
     </Grid>

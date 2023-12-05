@@ -24,7 +24,7 @@ namespace Sovelluskehitys_harkka
     public partial class MainWindow : Window
     {
         private string solun_arvo;
-        string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\k2101792\\Documents\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
+        string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\leevi\\OneDrive\\Tiedostot\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
         Tietokannantoiminnot tkt;
         public MainWindow()
         {
@@ -32,7 +32,8 @@ namespace Sovelluskehitys_harkka
 
             tkt = new Tietokannantoiminnot();
 
-            tkt.paivitaCombo(valitseliike_combo);
+            tkt.paivitaLKCombo(valitseliike_combo);
+            tkt.paivitaKTcombo(valitsekäyttäjä_combo);
             
         }
 
@@ -48,7 +49,22 @@ namespace Sovelluskehitys_harkka
 
             kanta.Close();
 
-            tkt.paivitaCombo(valitseliike_combo);
+            tkt.paivitaLKCombo(valitseliike_combo);
+        }
+
+        private void käyttäjä_lisää_button_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection kanta = new SqlConnection(polku);
+            kanta.Open();
+
+            string sql = "INSERT INTO käyttäjät (käyttäjätunnus) VALUES ('" + uusikäyttäjä_box.Text + "')";
+
+            SqlCommand komento = new SqlCommand(sql, kanta);
+            komento.ExecuteNonQuery();
+
+            kanta.Close();
+
+            tkt.paivitaKTcombo(valitsekäyttäjä_combo);
         }
     }
 }
