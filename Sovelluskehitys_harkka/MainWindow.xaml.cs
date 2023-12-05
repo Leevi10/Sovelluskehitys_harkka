@@ -25,10 +25,30 @@ namespace Sovelluskehitys_harkka
     {
         private string solun_arvo;
         string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\k2101792\\Documents\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
-
+        Tietokannantoiminnot tkt;
         public MainWindow()
         {
             InitializeComponent();
+
+            tkt = new Tietokannantoiminnot();
+
+            tkt.paivitaCombo(valitseliike_combo);
+            
+        }
+
+        private void liikelisää_button_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection kanta = new SqlConnection(polku);
+            kanta.Open();
+
+            string sql = "INSERT INTO harjoitukset (liike) VALUES ('" + uusiliike_box.Text + "')";
+
+            SqlCommand komento = new SqlCommand(sql, kanta);
+            komento.ExecuteNonQuery();
+
+            kanta.Close();
+
+            tkt.paivitaCombo(valitseliike_combo);
         }
     }
 }
