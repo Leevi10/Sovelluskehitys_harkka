@@ -17,6 +17,7 @@
                             <DataGridTextColumn Header="Liike" Binding="{Binding Path='Liike'}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Paino" Binding="{Binding Path='Paino'}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Toistot" Binding="{Binding Path='Toistot'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Pvm" Binding="{Binding Path='Pvm'}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

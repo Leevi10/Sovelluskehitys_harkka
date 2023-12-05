@@ -37,6 +37,26 @@ namespace Sovelluskehitys_harkka
             }
             lukija.Close();
             kanta.Close();
+
+        }
+        public void paivitaDataGrid(string kysely, string taulu, DataGrid grid)
+        {
+            SqlConnection kanta = new SqlConnection(polku);
+            kanta.Open();
+
+        
+            SqlCommand komento = kanta.CreateCommand();
+            komento.CommandText = kysely; 
+
+            
+            SqlDataAdapter adapteri = new SqlDataAdapter(komento);
+            DataTable dt = new DataTable(taulu);
+            adapteri.Fill(dt);
+
+            
+            grid.ItemsSource = dt.DefaultView;
+
+            kanta.Close();
         }
     }
 }

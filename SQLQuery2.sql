@@ -19,3 +19,4 @@ SELECT * FROM harjoitukset;
 SELECT * FROM reeni;
 
 SELECT ti.id AS id, a.nimi AS asiakas, tu.nimi AS tuote, ti.toimitettu AS toimitettu FROM tilaukset ti, asiakkaat a, tuotteet tu WHERE a.id=ti.asiakas_id AND tu.id=ti.tuote_id;
+SELECT re.id AS id, k.k‰ytt‰j‰tunnus AS k‰ytt‰j‰, ha.liike AS liike, re.paino AS paino, re.toistom‰‰r‰ AS toistot, kr.pvm AS pvm FROM reeni re, k‰ytt‰j‰t k, harjoitukset ha, k‰ytt‰j‰nreenit kr WHERE kr.id=re.reeni_id AND k.id=kr.k‰ytt‰j‰_id AND ha.id=re.harjoitus_id;
