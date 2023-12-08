@@ -20,7 +20,6 @@
                             <DataGridTextColumn Header="Pvm" Binding="{Binding pvm}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="poistareeni_button" Content="Poista harjoitus" HorizontalAlignment="Left" Margin="39,274,0,0" VerticalAlignment="Top" Width="121" Height="27" FontFamily="Arial"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Lisää Treeni">
@@ -52,7 +51,6 @@
                     <TextBox x:Name="uusikäyttäjä_box" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Height="29" Margin="22,84,0,0" FontFamily="Arial"/>
                     <Label x:Name="uusikäyttäjä_label" Content="Uusi käyttäjä" HorizontalAlignment="Left" Margin="85,26,0,0" VerticalAlignment="Top" Width="90" FontWeight="Bold" FontFamily="Arial"/>
                     <DataGrid x:Name="Käyttäjä_taulu" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="273,10,16,124"/>
-                    <Button x:Name="poista_käyttäjä_button" Content="Poista käyttäjä" HorizontalAlignment="Left" Margin="22,215,0,0" VerticalAlignment="Top" Width="217" Height="30" FontFamily="Arial"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Liiketiedot">
@@ -61,7 +59,6 @@
                     <TextBox x:Name="uusiliike_box" HorizontalAlignment="Left" Margin="22,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="27" FontFamily="Arial"/>
                     <Label x:Name="Liike_Label" Content="Lisää uusi liike" Margin="57,55,0,0" VerticalAlignment="Top" Width="96" HorizontalAlignment="Left" Cursor="Arrow" FontWeight="Bold" FontFamily="Arial"/>
                     <DataGrid x:Name="Liike_taulu" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="216,10,30,31"/>
-                    <Button x:Name="liikepoista_button" Content="Poista liike" HorizontalAlignment="Left" Margin="23,299,0,0" VerticalAlignment="Top" Width="166" Height="27" FontFamily="Arial"/>
 
                 </Grid>
             </TabItem>
