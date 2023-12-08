@@ -13,11 +13,11 @@
                     <DataGrid x:Name="treeni_tiedot_lista" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="id" Binding="{Binding Path='id'}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Käyttäjä" Binding="{Binding Path='Käyttäjä'}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Liike" Binding="{Binding Path='Liike'}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Paino" Binding="{Binding Path='Paino'}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Toistot" Binding="{Binding Path='Toistot'}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Pvm" Binding="{Binding Path='Pvm'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Käyttäjä" Binding="{Binding Path='käyttäjä'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Liike" Binding="{Binding Path='liike'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Paino" Binding="{Binding Path='paino'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Toistot" Binding="{Binding Path='toistot'}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Pvm" Binding="{Binding Path='pvm'}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -33,6 +33,7 @@
                     <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28" Cursor="Hand" Click="Lisäätreeni_button_Click"/>
                     <ComboBox x:Name="valitsekäyttäjä_combo" HorizontalAlignment="Left" Margin="105,30,0,0" VerticalAlignment="Top" Width="159"/>
                     <Label x:Name="valitsekäyttäjä_label" Content="Valitse käyttäjä" HorizontalAlignment="Left" Margin="6,26,0,0" VerticalAlignment="Top"/>
+                    <Calendar x:Name="nykyinen_paiva" HorizontalAlignment="Left" Margin="397,25,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Käyttäjä">
