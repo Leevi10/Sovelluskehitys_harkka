@@ -33,7 +33,6 @@
                     <Button x:Name="Lisäätreeni_button" Content="Lisää" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="159" Height="28" Cursor="Hand" Click="Lisäätreeni_button_Click"/>
                     <ComboBox x:Name="valitsekäyttäjä_combo" HorizontalAlignment="Left" Margin="105,30,0,0" VerticalAlignment="Top" Width="159"/>
                     <Label x:Name="valitsekäyttäjä_label" Content="Valitse käyttäjä" HorizontalAlignment="Left" Margin="6,26,0,0" VerticalAlignment="Top"/>
-                    <Calendar x:Name="nykyinen_paiva" HorizontalAlignment="Left" Margin="397,25,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Käyttäjä">
@@ -48,6 +47,14 @@
                     <Button x:Name="liikelisää_button" Content="Lisää liike" HorizontalAlignment="Left" Margin="37,96,0,0" VerticalAlignment="Top" Width="129" Height="25" Cursor="Hand" Click="liikelisää_button_Click"/>
                     <TextBox x:Name="uusiliike_box" HorizontalAlignment="Left" Margin="37,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="22"/>
                     <Label x:Name="Liike_Label" Content="Lisää uusi liike" Margin="37,21,0,0" VerticalAlignment="Top" Width="129" HorizontalAlignment="Left" Cursor="Arrow"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="testi">
+                <Grid Background="#FFE5E5E5">
+                    <Calendar x:Name="nykyinen_paiva" HorizontalAlignment="Left" Margin="397,25,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="aloitareeni_button" Content="Button" HorizontalAlignment="Left" Margin="61,215,0,0" VerticalAlignment="Top" Width="120" Click="aloitareeni_button_Click"/>
+                    <ComboBox x:Name="aloitareeni_combo" HorizontalAlignment="Left" Margin="61,169,0,0" VerticalAlignment="Top" Width="120"/>
 
                 </Grid>
             </TabItem>

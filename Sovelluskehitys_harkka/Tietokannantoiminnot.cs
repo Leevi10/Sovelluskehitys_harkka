@@ -58,7 +58,7 @@ namespace Sovelluskehitys_harkka
 
             kanta.Close();
         }
-        public void paivitaKTcombo(ComboBox kombo1)
+        public void paivitaKTcombo(ComboBox kombo1, ComboBox kombo2)
         {
             SqlConnection kanta = new SqlConnection(polku);
             kanta.Open();
@@ -73,6 +73,11 @@ namespace Sovelluskehitys_harkka
             kombo1.ItemsSource = dt.DefaultView;
             kombo1.DisplayMemberPath = "KÄYTTÄJÄTUNNUS";
             kombo1.SelectedValuePath = "ID";
+
+            kombo2.ItemsSource = dt.DefaultView;
+            kombo2.DisplayMemberPath = "KÄYTTÄJÄTUNNUS";
+            kombo2.SelectedValuePath = "ID";
+
 
             while (lukija.Read())
             {

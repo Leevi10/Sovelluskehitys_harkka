@@ -34,7 +34,7 @@ namespace Sovelluskehitys_harkka
             tkt = new Tietokannantoiminnot();
 
             tkt.paivitaLKCombo(valitseliike_combo);
-            tkt.paivitaKTcombo(valitsekäyttäjä_combo);
+            tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
 
             tkt.paivitaDataGrid("SELECT re.id AS id, k.käyttäjätunnus AS käyttäjä, ha.liike AS liike, re.paino AS paino, re.toistomäärä AS toistot, kr.pvm AS pvm FROM reeni re, käyttäjät k, harjoitukset ha, käyttäjänreenit kr WHERE kr.id = re.reeni_id AND k.id = kr.käyttäjä_id AND ha.id = re.harjoitus_id","treeni", treeni_tiedot_lista);
 
@@ -68,7 +68,7 @@ namespace Sovelluskehitys_harkka
 
             kanta.Close();
 
-            tkt.paivitaKTcombo(valitsekäyttäjä_combo);
+            tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
         }
 
         private void Lisäätreeni_button_Click(object sender, RoutedEventArgs e)
@@ -86,6 +86,29 @@ namespace Sovelluskehitys_harkka
             kanta.Close();
 
             tkt.paivitaDataGrid("SELECT re.id AS id, k.käyttäjätunnus AS käyttäjä, ha.liike AS liike, re.paino AS paino, re.toistomäärä AS toistot, kr.pvm AS pvm FROM reeni re, käyttäjät k, harjoitukset ha, käyttäjänreenit kr WHERE kr.id = re.reeni_id AND k.id = kr.käyttäjä_id AND ha.id = re.harjoitus_id","treeni", treeni_tiedot_lista);
+        }
+
+        private void aloitareeni_button_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection kanta = new SqlConnection(polku);
+            kanta.Open();
+
+            string kayttaja = aloitareeni_combo.SelectedValue.ToString();
+
+            string paiva = nykyinen_paiva.SelectedDate.Value.Day.ToString();
+            string kuukausi = nykyinen_paiva.SelectedDate.Value.Month.ToString();
+            string vuosi = nykyinen_paiva.SelectedDate.Value.Year.ToString();
+
+            string paivamaara = paiva + "/" + kuukausi + "/" + vuosi;
+
+            string sql = "INSERT INTO käyttäjänreenit(käyttäjä_id, pvm) VALUES ('" + kayttaja + "', '" + paivamaara + "');";
+
+            SqlCommand komento = new SqlCommand(sql, kanta);
+            komento.ExecuteNonQuery();
+
+            kanta.Close();
+
+            
         }
     }
 }
