@@ -25,7 +25,7 @@ namespace Sovelluskehitys_harkka
     public partial class MainWindow : Window
     {
         private string solun_arvo;
-        string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\k2101792\\Documents\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
+        string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\leevi\\OneDrive\\Tiedostot\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
         Tietokannantoiminnot tkt;
         public MainWindow()
         {
@@ -85,7 +85,7 @@ namespace Sovelluskehitys_harkka
             komento.ExecuteNonQuery();
             kanta.Close();
 
-            tkt.paivitaDataGrid("SELECT re.id AS id, k.käyttäjätunnus AS käyttäjä, ha.liike AS liike, re.paino AS paino, re.toistomäärä AS toistot, kr.pvm AS pvm FROM reeni re, käyttäjät k, harjoitukset ha, käyttäjänreenit kr WHERE kr.id = re.reeni_id AND k.id = kr.käyttäjä_id AND ha.id = re.harjoitus_id","treeni", treeni_tiedot_lista);
+            tkt.paivitaDataGrid("SELECT re.id AS id, k.käyttäjätunnus AS käyttäjä, ha.liike AS liike, re.paino AS paino, re.toistomäärä AS toistot, kr.pvm AS pvm FROM reeni re, käyttäjät k, harjoitukset ha, käyttäjänreenit kr WHERE kr.id = re.reeni_id AND k.id = kr.käyttäjä_id AND ha.id = re.harjoitus_id" , "treeni", treeni_tiedot_lista);
         }
 
         private void aloitareeni_button_Click(object sender, RoutedEventArgs e)
