@@ -37,6 +37,10 @@ namespace Sovelluskehitys_harkka
             tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
 
             tkt.paivitaDataGrid("SELECT re.id AS id, k.käyttäjätunnus AS käyttäjä, ha.liike AS liike, re.paino AS paino, re.toistomäärä AS toistot, kr.pvm AS pvm FROM reeni re, käyttäjät k, harjoitukset ha, käyttäjänreenit kr WHERE kr.id = re.reeni_id AND k.id = kr.käyttäjä_id AND ha.id = re.harjoitus_id","treeni", treeni_tiedot_lista);
+            tkt.paivitaDataGrid("SELECT kr.id AS id, k.käyttäjätunnus AS käyttäjä, kr.pvm AS pvm FROM käyttäjät k, käyttäjänreenit kr WHERE k.id=kr.käyttäjä_id;", "harjoitus", Harjoitus_taulu);
+            tkt.paivitaDataGrid("SELECT * FROM käyttäjät;", "käyttäjä", Käyttäjä_taulu);
+            tkt.paivitaDataGrid("SELECT * FROM harjoitukset;", "liike", Liike_taulu);
+
 
 
         }
@@ -54,6 +58,7 @@ namespace Sovelluskehitys_harkka
             kanta.Close();
 
             tkt.paivitaLKCombo(valitseliike_combo);
+            tkt.paivitaDataGrid("SELECT * FROM harjoitukset;", "liike", Liike_taulu);
         }
 
         private void käyttäjä_lisää_button_Click(object sender, RoutedEventArgs e)
@@ -69,6 +74,7 @@ namespace Sovelluskehitys_harkka
             kanta.Close();
 
             tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
+            tkt.paivitaDataGrid("SELECT * FROM käyttäjät;", "käyttäjä", Käyttäjä_taulu);
         }
 
         private void Lisäätreeni_button_Click(object sender, RoutedEventArgs e)
@@ -108,7 +114,7 @@ namespace Sovelluskehitys_harkka
 
             kanta.Close();
 
-            
+            tkt.paivitaDataGrid("SELECT kr.id AS id, k.käyttäjätunnus AS käyttäjä, kr.pvm AS pvm FROM käyttäjät k, käyttäjänreenit kr WHERE k.id=kr.käyttäjä_id;", "harjoitus", Harjoitus_taulu);
         }
     }
 }
