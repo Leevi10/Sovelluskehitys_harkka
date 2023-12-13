@@ -62,11 +62,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="testi">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-
-
         </TabControl>
+        <StatusBar VerticalAlignment="Bottom">
+            <TextBlock x:Name="tilaviesti" Text="Valmis"/>
+        </StatusBar>
     </Grid>
 </Window>
