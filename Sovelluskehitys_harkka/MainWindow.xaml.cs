@@ -52,18 +52,33 @@ namespace Sovelluskehitys_harkka
                 SqlConnection kanta = new SqlConnection(polku);
                 kanta.Open();
 
-                string sql = "INSERT INTO harjoitukset (liike) VALUES ('" + uusiliike_box.Text + "')";
+                string sql = "SELECT * FROM harjoitukset WHERE liike = '" + uusiliike_box.Text + "'";
 
                 SqlCommand komento = new SqlCommand(sql, kanta);
-                komento.ExecuteNonQuery();
+                SqlDataReader lukija = komento.ExecuteReader();
+                if (!lukija.Read())
+                {
 
-                kanta.Close();
+                    lukija.Close();
 
-                tkt.paivitaLKCombo(valitseliike_combo);
-                tkt.paivitaDataGrid("SELECT * FROM harjoitukset;", "liike", Liike_taulu);
+                    string sql2 = "INSERT INTO harjoitukset (liike) VALUES ('" + uusiliike_box.Text + "')";
 
-                tilaviesti.Text = "Liikkeen lisääminen onnistui!";
-            }
+                    SqlCommand komento2 = new SqlCommand(sql2, kanta);
+                    komento2.ExecuteNonQuery();
+
+                    kanta.Close();
+
+                    tkt.paivitaLKCombo(valitseliike_combo);
+                    tkt.paivitaDataGrid("SELECT * FROM harjoitukset;", "liike", Liike_taulu);
+
+                    tilaviesti.Text = "Liikkeen lisääminen onnistui!";
+                }
+                else 
+                {
+                    tilaviesti.Text = "Liike löytyy jo!";
+                    lukija.Close();
+                }
+                }
             catch 
             {
                 tilaviesti.Text = "Lisäys epäonnistui";
@@ -77,17 +92,32 @@ namespace Sovelluskehitys_harkka
                 SqlConnection kanta = new SqlConnection(polku);
                 kanta.Open();
 
-                string sql = "INSERT INTO käyttäjät (käyttäjätunnus) VALUES ('" + uusikäyttäjä_box.Text + "')";
+                string sql = "SELECT * FROM käyttäjät WHERE käyttäjätunnus = '" + uusikäyttäjä_box.Text + "'";
 
                 SqlCommand komento = new SqlCommand(sql, kanta);
-                komento.ExecuteNonQuery();
+                SqlDataReader lukija = komento.ExecuteReader();
+                if (!lukija.Read())
+                {
 
-                kanta.Close();
+                    lukija.Close();
 
-                tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
-                tkt.paivitaDataGrid("SELECT * FROM käyttäjät;", "käyttäjä", Käyttäjä_taulu);
+                    sql = "INSERT INTO käyttäjät (käyttäjätunnus) VALUES ('" + uusikäyttäjä_box.Text + "')";
 
-                tilaviesti.Text = "Käyttäjän lisääminen onnistui!";
+                    SqlCommand komento2 = new SqlCommand(sql, kanta);
+                    komento2.ExecuteNonQuery();
+
+                    kanta.Close();
+
+                    tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
+                    tkt.paivitaDataGrid("SELECT * FROM käyttäjät;", "käyttäjä", Käyttäjä_taulu);
+
+                    tilaviesti.Text = "Käyttäjän lisääminen onnistui!";
+                }
+                else 
+                {
+                    tilaviesti.Text = "Käyttäjä löytyy jo!";
+                    lukija.Close();
+                }
             }
             catch 
             {
