@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="bb.jpg" />
+    <None Remove="je.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="bb.jpg" />
+    <Resource Include="je.webp" />
   </ItemGroup>
 
 </Project>
