@@ -11,7 +11,7 @@ namespace Sovelluskehitys_harkka
 {
     internal class Tietokannantoiminnot
     {
-        string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\k2101792\\Documents\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
+        string polku = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\leevi\\OneDrive\\Tiedostot\\Tietokanta.mdf;Integrated Security=True;Connect Timeout=30";
 
         public void paivitaLKCombo(ComboBox kombo1)
         {
@@ -63,7 +63,7 @@ namespace Sovelluskehitys_harkka
             SqlConnection kanta = new SqlConnection(polku);
             kanta.Open();
 
-            SqlCommand komento = new SqlCommand("SELECT kr.id AS id, k.käyttäjätunnus AS käyttäjä FROM käyttäjänreenit kr, käyttäjät k WHERE kr.käyttäjä_id=k.id;", kanta);
+            SqlCommand komento = new SqlCommand("SELECT TOP 1 kr.id AS id, k.käyttäjätunnus AS käyttäjä FROM käyttäjänreenit kr JOIN käyttäjät k ON kr.käyttäjä_id=k.id ORDER BY kr.id DESC", kanta);
             SqlDataReader lukija = komento.ExecuteReader();
 
             DataTable dt = new DataTable();
