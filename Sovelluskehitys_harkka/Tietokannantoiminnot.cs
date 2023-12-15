@@ -58,7 +58,34 @@ namespace Sovelluskehitys_harkka
 
             kanta.Close();
         }
-        public void paivitaKTcombo(ComboBox kombo1, ComboBox kombo2)
+        public void paivitaKTcombo(ComboBox kombo1)
+        {
+            SqlConnection kanta = new SqlConnection(polku);
+            kanta.Open();
+
+            SqlCommand komento = new SqlCommand("SELECT kr.id AS id, k.käyttäjätunnus AS käyttäjä FROM käyttäjänreenit kr, käyttäjät k WHERE kr.käyttäjä_id=k.id;", kanta);
+            SqlDataReader lukija = komento.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("KÄYTTÄJÄTUNNUS", typeof(string));
+
+            kombo1.ItemsSource = dt.DefaultView;
+            kombo1.DisplayMemberPath = "KÄYTTÄJÄTUNNUS";
+            kombo1.SelectedValuePath = "ID";
+
+            while (lukija.Read())
+            {
+                int id = lukija.GetInt32(0);
+                string käyttäjätunnus = lukija.GetString(1);
+                dt.Rows.Add(id, käyttäjätunnus);
+            }
+            lukija.Close();
+            kanta.Close();
+
+
+        }
+        public void paivitaKcombo(ComboBox kombo1)
         {
             SqlConnection kanta = new SqlConnection(polku);
             kanta.Open();
@@ -73,10 +100,6 @@ namespace Sovelluskehitys_harkka
             kombo1.ItemsSource = dt.DefaultView;
             kombo1.DisplayMemberPath = "KÄYTTÄJÄTUNNUS";
             kombo1.SelectedValuePath = "ID";
-
-            kombo2.ItemsSource = dt.DefaultView;
-            kombo2.DisplayMemberPath = "KÄYTTÄJÄTUNNUS";
-            kombo2.SelectedValuePath = "ID";
 
 
             while (lukija.Read())

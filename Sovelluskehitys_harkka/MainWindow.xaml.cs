@@ -34,7 +34,8 @@ namespace Sovelluskehitys_harkka
             tkt = new Tietokannantoiminnot();
 
             tkt.paivitaLKCombo(valitseliike_combo);
-            tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
+            tkt.paivitaKTcombo(valitsekäyttäjä_combo);
+            tkt.paivitaKcombo(aloitareeni_combo);
 
             tkt.paivitaDataGrid("SELECT re.id AS id, k.käyttäjätunnus AS käyttäjä, ha.liike AS liike, re.paino AS paino, re.toistomäärä AS toistot, kr.pvm AS pvm FROM reeni re, käyttäjät k, harjoitukset ha, käyttäjänreenit kr WHERE kr.id = re.reeni_id AND k.id = kr.käyttäjä_id AND ha.id = re.harjoitus_id","treeni", treeni_tiedot_lista);
             tkt.paivitaDataGrid("SELECT kr.id AS id, k.käyttäjätunnus AS käyttäjä, kr.pvm AS pvm FROM käyttäjät k, käyttäjänreenit kr WHERE k.id=kr.käyttäjä_id;", "harjoitus", Harjoitus_taulu);
@@ -108,7 +109,7 @@ namespace Sovelluskehitys_harkka
 
                     kanta.Close();
 
-                    tkt.paivitaKTcombo(valitsekäyttäjä_combo, aloitareeni_combo);
+                    tkt.paivitaKTcombo(valitsekäyttäjä_combo);
                     tkt.paivitaDataGrid("SELECT * FROM käyttäjät;", "käyttäjä", Käyttäjä_taulu);
 
                     tilaviesti.Text = "Käyttäjän lisääminen onnistui!";
@@ -135,7 +136,7 @@ namespace Sovelluskehitys_harkka
                 string kayttajaID = valitsekäyttäjä_combo.SelectedValue.ToString();
                 string liikeID = valitseliike_combo.SelectedValue.ToString();
 
-                string sql = "INSERT INTO reeni(harjoitus_id, reeni_id, toistomäärä, paino) SELECT harjoitukset.id, käyttäjät.id, '" + toisto_box.Text + "', '" + paino_box.Text + "' FROM harjoitukset CROSS JOIN käyttäjät WHERE harjoitukset.id = '" + liikeID + "' AND käyttäjät.id = '" + kayttajaID + "'";
+                string sql = "INSERT INTO reeni(harjoitus_id, reeni_id, toistomäärä, paino) SELECT harjoitukset.id, käyttäjänreenit.id, '" + toisto_box.Text + "', '" + paino_box.Text + "' FROM harjoitukset CROSS JOIN käyttäjänreenit WHERE harjoitukset.id = '" + liikeID + "' AND käyttäjänreenit.id = '" + kayttajaID + "'";
 
                 SqlCommand komento = new SqlCommand(sql, kanta);
                 komento.ExecuteNonQuery();
